@@ -2,12 +2,22 @@ import styled from 'styled-components'
 
 const RepositoriesStyle = styled.div`
   width: 100%;
-  max-width: 600px;
-  margin: 0 0 100px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgb(47 60 74 / 1%), 0 8px 16px rgb(47 60 74 / 2%);
+  min-height: calc(100vh - 40px);
+  @media screen and (max-width: 769px) {
+    min-height: 0;
+  }
+  .notice {
+    padding: 5px 0;
+    font-size: 12px;
+  }
   .searchForm {
-    margin: 0 0 30px;
-    display: flex;
-    align-items: center;
+    margin: 0 0 20px;
+    .formContent {
+      display: flex;
+      align-items: center;
+    }
     input {
       height: 30px;
       margin: 0 5px 0 0;
@@ -42,6 +52,14 @@ const RepositoriesStyle = styled.div`
     width: 100%;
     border-collapse: collapse;
     margin: 0 0 15px;
+    max-height: calc(100vh - 270px);
+    overflow-y: auto;
+    @media screen and (max-width: 769px) {
+      max-height: initial;
+    }
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
     th {
       text-align: left;
       padding: 5px 10px;

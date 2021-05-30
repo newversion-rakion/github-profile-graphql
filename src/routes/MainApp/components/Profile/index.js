@@ -11,8 +11,6 @@ const Profile = () => {
   const { avatarUrl, login, name, bio, company, location } = data.viewer
   return (
     <ProfileStyles style={{ animation: `fadeIn 1s` }}>
-    <h1 className="pageTitle">Github management</h1>
-    <h2 className="boxTitle">User profile</h2>
     <div className="userBox">
       <div className="boxLeft">
         <div className="userThumb">
@@ -22,23 +20,15 @@ const Profile = () => {
       <div className="boxRight">
         <ul className="userDetail">
           <li>
-            <span>login:</span>
-            {login}
+            <strong>{name}</strong>
           </li>
           <li>
-            <span>name:</span>
-            {name}
-          </li>
-          <li>
-            <span>bio:</span>
             {bio}
           </li>
           <li>
-            <span>company:</span>
             {company}
           </li>
           <li>
-            <span>location:</span>
             {location}
           </li>
         </ul>

@@ -63,29 +63,42 @@ const Repositories = () => {
           handleSubmit();
         }}
       >
-        <input
-          type="text"
-          placeholder="Type username then hit enter..."
-          value={loginFieldValue}
-          onChange={e => {
-            setLoginFieldValue(e.target.value.trim())
-          }}
-        />
-        <button type="submit" disabled={!loginFieldValue}>Search</button>
+        <div className="formContent">
+          <input
+            type="text"
+            placeholder="Type username then hit enter..."
+            value={loginFieldValue}
+            onChange={e => {
+              setLoginFieldValue(e.target.value.trim())
+            }}
+          />
+          <button type="submit" disabled={!loginFieldValue}>Search</button>
+        </div>
+
+        {data && !data.repositoryOwner && loginFieldValue && (
+          <p className="notice">User not exist</p>
+        )}
       </form>
 
       {repositories && (
         <>
-          <ul className="boxInfo">
-            <li>
-              <span>TotalCount:</span>
-              {repositories.totalCount}
-            </li>
-            <li>
-              <span>Loaded:</span>
-              {repositories.nodes.length}
-            </li>
-          </ul>
+          {repositories.nodes.length > 0  ? (
+            <>
+              <h3 class="boxTitle">Repositories</h3>
+              <ul className="boxInfo">
+                <li>
+                  <span>TotalCount:</span>
+                  {repositories.totalCount}
+                </li>
+                <li>
+                  <span>Loaded:</span>
+                  {repositories.nodes.length}
+                </li>
+              </ul>
+            </>
+          ) : (
+            <p className="notice">The user have no repository</p>
+          )}
 
           <div className="repoList">
             {repositories.nodes.map(item => (
@@ -98,7 +111,7 @@ const Repositories = () => {
       {repositories && repositories.pageInfo && repositories.pageInfo.hasNextPage && (
           <LoadmoreButton
             className="btnLoadmore"
-            label="Loadmore"
+            label="Loadmore repositories"
             handleLoadmore={handleLoadmore}
             loading={loading}
           />

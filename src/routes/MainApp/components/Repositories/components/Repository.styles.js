@@ -86,6 +86,7 @@ const RepositoryStyle = styled.div`
     border-radius: 5px;
     padding: 15px 10px;
     margin: 10px 0 0;
+    max-width: 500px;
   }
   .stargazerBox {
     display: flex;
@@ -128,7 +129,7 @@ const RepositoryStyle = styled.div`
     width: 100%;
     height: 100%;
     max-width: 600px;
-    max-height: 370px;
+    max-height: 315px;
     padding: 15px 0;
     margin: auto;
     background: #fff;
@@ -205,7 +206,7 @@ const RepositoryStyle = styled.div`
     padding: 0 15px;
   }
   .scrollBox {
-    max-height: 230px;
+    max-height: 170px;
     padding: 10px 0;
     overflow-y: auto;
     &::-webkit-scrollbar {
