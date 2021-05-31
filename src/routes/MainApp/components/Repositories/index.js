@@ -84,7 +84,7 @@ const Repositories = () => {
         <>
           {repositories.nodes.length > 0  ? (
             <>
-              <h3 class="boxTitle">Repositories</h3>
+              <h3 className="boxTitle">Repositories</h3>
               <ul className="boxInfo">
                 <li>
                   <span>TotalCount:</span>
